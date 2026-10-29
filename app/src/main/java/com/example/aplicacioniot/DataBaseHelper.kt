@@ -46,6 +46,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.insert(TABLE_USERS, null, values)
     }
 
+    // Nueva función para registrar usuarios desde la app
+    fun registrarUsuario(username: String, passwordReal: String): Boolean {
+        val db = this.writableDatabase
+
+        // Verificar si el usuario ya existe
+        val cursor = db.rawQuery(
+            "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USERNAME = ?",
+            arrayOf(username)
+        )
+        if (cursor.count > 0) {
+            cursor.close()
+            return false // El usuario ya existe
+        }
+        cursor.close()
+
+        // Insertar usuario con la clave encriptada en SHA-256
+        val values = ContentValues()
+        values.put(COLUMN_USERNAME, username)
+        values.put(COLUMN_PASSWORD, hashPassword(passwordReal))
+        val resultado = db.insert(TABLE_USERS, null, values)
+
+        return resultado != -1L
+    }
+
     fun validarLogin(username: String, passwordReal: String): Boolean {
         val db = this.readableDatabase
         val passwordHash = hashPassword(passwordReal)

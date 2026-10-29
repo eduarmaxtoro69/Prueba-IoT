@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         val etUsername = findViewById<EditText>(R.id.etUsername)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val btnIrRegistro = findViewById<Button>(R.id.btnIrRegistro)
 
+        // Evento para iniciar sesión
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
@@ -32,16 +34,19 @@ class MainActivity : AppCompatActivity() {
 
                 if (loginValido) {
                     Toast.makeText(this, "¡Ingreso exitoso!", Toast.LENGTH_SHORT).show()
-
-                    // Código exacto que obliga a la app a saltar a la otra pantalla
                     val intent = Intent(this, ControlActivity::class.java)
                     startActivity(intent)
-                    finish()
-
+                    finish() // Cierra la pantalla de Login para no regresar al presionar atrás
                 } else {
                     Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+        // Evento para ir a la pantalla de Registro
+        btnIrRegistro.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }

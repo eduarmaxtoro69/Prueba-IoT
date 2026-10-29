@@ -2,15 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Permisos para Bluetooth clásico -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!-- Permisos requeridos para Android 12 y superior -->
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-
-    <!-- Permiso de ubicación (obligatorio por seguridad de Android para escanear Bluetooth) -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -25,7 +20,6 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
 
-        <!-- PANTALLA 1: Inicio de Sesión (Login) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -35,8 +29,8 @@
             </intent-filter>
         </activity>
 
-        <!-- PANTALLA 2: Control Bluetooth (LA QUE FALTABA REGISTRAR) -->
         <activity android:name=".ControlActivity" />
+        <activity android:name=".RegisterActivity" />
 
     </application>
 
