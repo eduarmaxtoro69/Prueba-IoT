@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#F3F4F6">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Habitación via"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1F2937"
+        android:layout_marginBottom="40dp" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Usuario (ej. bajos de mena)"
+        android:inputType="text"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- El inputType="textPassword" oculta la clave con asteriscos por seguridad -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Contraseña (ej. puente_asalto123)"
+        android:inputType="textPassword"
+        android:background="#FFFFFF"
+        android:padding="16dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="INICIAR SESIÓN A LO CHORO"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#D32F2F" />
+
+</LinearLayout>
